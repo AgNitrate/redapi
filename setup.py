@@ -1,26 +1,28 @@
-from setuptools import setup, find_packages
-
+import setuptools
 with open('README.md') as f:
     readme = f.read()
 
 with open('LICENSE') as f:
     license = f.read()
 
-setup(
+setuptools.setup(
     name='redapi',
     version='0.2.1',
-    description='Redacted.ch API',
-    long_description=readme,
     author='AgNitrate',
     author_email='agnitrate@protonmail.com',
+    description='Redacted.ch API',
+    long_description=readme,
+    long_description_content_type='text/markdown',
     url='https://github.com/AgNitrate/redapi',
     license=license,
     install_requires = [
         "requests"
     ],
-    packages=find_packages(exclude=('tests', 'docs')),
-    package_data = {
-        '': ['*.txt']
-    },
-    zip_safe=True
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.7',
 )
